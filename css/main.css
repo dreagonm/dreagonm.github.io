@@ -188,7 +188,7 @@ body {
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 14px;
   line-height: 2;
-  color: #555;
+  color: #222;
   background: #fff;
 }
 @media (max-width: 767px) {
@@ -982,7 +982,7 @@ pre .javascript .function {
   display: block;
   width: 22px;
   height: 2px;
-  background: #555;
+  background: #222;
   border-radius: 1px;
 }
 .btn-bar+.btn-bar {
@@ -1863,7 +1863,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #a290af;
+  background: #1a750d;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2633,4 +2633,24 @@ embed {
 }
 .links-of-blogroll-inline .links-of-blogroll-item {
   display: inline-block;
+}
+header.header {
+  background: rgba(255,255,255,0.7) !important;
+}
+main.main {
+  background: rgba(255,255,255,0.7) !important;
+}
+@media screen and (min-width: 1200px) {
+  body {
+    color: #222;
+    opacity: 1;
+    background-image: url("/images/background.jpg");
+    background-size: 100%;
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-position: 50% 50%;
+  }
+  #footer a {
+    color: #eee;
+  }
 }
