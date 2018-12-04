@@ -108,23 +108,25 @@
 
 
 
-  <meta name="description" content="心中无码，自然爆零">
-<meta property="og:type" content="website">
-<meta property="og:title" content="dreagonm&#39;s BLOG">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="第一次做莫比乌斯反演，推式子真是快乐的很啊（棒读）">
+<meta name="keywords" content="数论,整除分块,莫比乌斯反演,GCD">
+<meta property="og:type" content="article">
+<meta property="og:title" content="P2257 YY的GCD（莫比乌斯反演）">
+<meta property="og:url" content="http://yoursite.com/2018/12/04/P2257-YY的GCD/index.html">
 <meta property="og:site_name" content="dreagonm&#39;s BLOG">
-<meta property="og:description" content="心中无码，自然爆零">
+<meta property="og:description" content="第一次做莫比乌斯反演，推式子真是快乐的很啊（棒读）">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-04T10:02:31.998Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="dreagonm&#39;s BLOG">
-<meta name="twitter:description" content="心中无码，自然爆零">
+<meta name="twitter:title" content="P2257 YY的GCD（莫比乌斯反演）">
+<meta name="twitter:description" content="第一次做莫比乌斯反演，推式子真是快乐的很啊（棒读）">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2018/12/04/P2257-YY的GCD/">
 
 
 
@@ -134,7 +136,7 @@
   };
 </script>
 
-  <title>dreagonm's BLOG</title>
+  <title>P2257 YY的GCD（莫比乌斯反演） | dreagonm's BLOG</title>
   
 
 
@@ -188,8 +190,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -230,7 +231,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
 
     
     
@@ -360,9 +361,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -370,6 +371,8 @@
   
   
 
+  
+    <div class="reading-progress-bar"></div>
   
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
@@ -394,10 +397,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/12/04/P2257-YY的GCD/" class="post-title-link" itemprop="http://yoursite.com/index.html">P2257 YY的GCD（莫比乌斯反演）</a>
+          <h1 class="post-title" itemprop="name headline">P2257 YY的GCD（莫比乌斯反演）
               
             
           </h1>
@@ -478,18 +478,14 @@
       
 
       
-        
-          <center> 第一次做莫比乌斯反演，推式子真是快乐的很啊（棒读） </center>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/12/04/P2257-YY的GCD/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-         
-          <!--/noindex-->
-        
+        <center> 第一次做莫比乌斯反演，推式子真是快乐的很啊（棒读） </center>
+
+<a id="more"></a>
+<p>###前置<br>若函数$F(n)$和$f(d)$存在以下关系<br>$$<br>    F(n)=\sum_{n|d}f(d)<br>$$<br>则可以推出<br>$$<br>    f(n)=\sum_{n|d}\mu(\frac{d}{n})F(d)<br>$$<br><strong>这就是莫比乌斯反演</strong></p>
+<p>###题目要求<br>求$gcd(a,b)={prime},a\in\left[1,n\right],b\in\left[1,m\right]$</p>
+<p>###思路<br>根据题意所以设出$f(n)$表示$gcd(a,b)=n$的$a,b$对数<br>根据莫比乌斯反演的形式<br>$$<br>    F(n)=\sum_{n|d}f(d)<br>$$<br>可以设出一个函数$F(n)$,表示$n|gcd(a,b)$的$(a,b)$对数<br>因为$n|gcd(a,b)$,所以$a=k_1\times n,b=k_2\times n$<br>所以显然有<br>$$<br>    F(x)=\lfloor\frac{n}{x}\rfloor\times\lfloor\frac{m}{x}\rfloor<br>$$<br>因为<br>$$<br>    f(x)=\sum_{x|d}\mu(\frac{d}{x})F(d)<br>$$<br>所以<br>$$<br>    f(x)=\sum_{x|d}\mu(\frac{d}{x})\times\lfloor\frac{n}{d}\rfloor\times\lfloor\frac{m}{d}\rfloor<br>$$<br>考虑到$\frac{d}{n}$的形式并不优美，我们换一种东西枚举<br>$$<br>    f(x)=\sum_{t=1}^{\lfloor\frac{n}{x}\rfloor}\mu(t)\times\lfloor\frac{n}{t\times x}\rfloor\times\lfloor\frac{m}{t\times x}\rfloor<br>$$<br>所以<br>$$<br>    ans=\sum_{x\in{prime}}^nf(x)=\sum_{x\in{prime}}^n\sum_{t=1}^{\lfloor\frac{n}{x}\rfloor}\mu(t)\times\lfloor\frac{n}{t\times x}\rfloor\times\lfloor\frac{m}{t\times x}\rfloor<br>$$<br>这样能拿到50PTS<br>然后设$T=t*x$,这样形式就变得更优美了一些<br>原式变形为<br>$$<br>    ans=\sum_{x\in{prime}}^nf(x)=\sum_{x\in{prime}}^n\sum_{t=1}^{\lfloor\frac{n}{x}\rfloor}\mu(\frac{T}{x})\times\lfloor\frac{n}{T}\rfloor\times\lfloor\frac{m}{T}\rfloor<br>$$<br>$$<br>    ans=\sum_{x\in{prime}}^nf(x)=\sum_{T=1}^{min(n,m)}\sum_{d\in{prime},d|T}\mu(\frac{T}{d})\times\lfloor\frac{n}{T}\rfloor\times\lfloor\frac{m}{T}\rfloor<br>$$<br>$$<br>    ans=\sum_{x\in{prime}}^nf(x)=\sum_{T=1}^{min(n,m)}\lfloor\frac{n}{T}\rfloor\times\lfloor\frac{m}{T}\rfloor\times\sum_{d\in{prime},d|T}\mu(\frac{T}{d})<br>$$<br>后面$\mu$的部分可以前缀和一下<br>前面的可以整除分块<br>加上线性筛<br>然后没了</p>
+<p>###代码<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">short</span> mu[<span class="number">10001000</span>];</span><br><span class="line"><span class="keyword">int</span> n,m,T,iprime[<span class="number">10001000</span>],cnt,isprime[<span class="number">10001000</span>],summu[<span class="number">10001000</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">prime</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    mu[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">    isprime[<span class="number">1</span>]=<span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!isprime[i])</span><br><span class="line">            iprime[++cnt]=i,mu[i]=<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=cnt&amp;&amp;iprime[j]*i&lt;=n;j++)&#123;</span><br><span class="line">            isprime[iprime[j]*i]=<span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">if</span>(i%iprime[j]==<span class="number">0</span>)&#123;</span><br><span class="line">                mu[iprime[j]*i]=<span class="number">0</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            mu[iprime[j]*i]=-mu[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=cnt;i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j*iprime[i]&lt;=n;j++)</span><br><span class="line">            summu[iprime[i]*j]+=mu[j];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        summu[i]+=summu[i<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> m)</span></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> l=<span class="number">1</span>,r;l&lt;=min(n,m);l=r+<span class="number">1</span>)&#123;</span><br><span class="line">        r=min(n/(n/l),m/(m/l));</span><br><span class="line">        ans+=<span class="number">1L</span>L*(summu[r]-summu[l<span class="number">-1</span>])*(n/l)*(m/l);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    prime(<span class="number">10000100</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</span><br><span class="line">    <span class="keyword">while</span>(T--)&#123;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> ans=<span class="number">0</span>;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;n,&amp;m);</span><br><span class="line">        <span class="keyword">if</span>(n&lt;m)</span><br><span class="line">            swap(n,m);</span><br><span class="line">        ans+=f(n,m);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
 
@@ -510,346 +506,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/03/P3203-HNOI2010-弹飞绵羊/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="dreagonm">
-      <meta itemprop="description" content="心中无码，自然爆零">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="dreagonm's BLOG">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/12/03/P3203-HNOI2010-弹飞绵羊/" class="post-title-link" itemprop="http://yoursite.com/index.html">P3203 [HNOI2010]弹飞绵羊（LCT）</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-12-03 12:32:19 / 修改时间：12:39:48" itemprop="dateCreated datePublished" datetime="2018-12-03T12:32:19+08:00">2018-12-03</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/数据结构————动态树-Link-Cut-Tree/" itemprop="url" rel="index"><span itemprop="name">数据结构————动态树(Link Cut Tree)</span></a></span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/数论-整除分块-莫比乌斯反演-GCD/" rel="tag"># 数论,整除分块,莫比乌斯反演,GCD</a>
           
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <center>LCT真是好用的数据结构啊（瘫）</center>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/12/03/P3203-HNOI2010-弹飞绵羊/#more" rel="contents">
-                阅读全文 &raquo;
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/03/P3203-HNOI2010-弹飞绵羊/" rel="next" title="P3203 [HNOI2010]弹飞绵羊（LCT）">
+                <i class="fa fa-chevron-left"></i> P3203 [HNOI2010]弹飞绵羊（LCT）
               </a>
-            </div>
-         
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-       
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/03/p3690-【模板】Link-Cut-Tree-（动态树）/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="dreagonm">
-      <meta itemprop="description" content="心中无码，自然爆零">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="dreagonm's BLOG">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/12/03/p3690-【模板】Link-Cut-Tree-（动态树）/" class="post-title-link" itemprop="http://yoursite.com/index.html">p3690 【模板】Link Cut Tree （动态树）</a>
-              
             
-          </h1>
-        
+          </div>
 
-        <div class="post-meta">
-          <span class="post-time">
+          <span class="post-nav-divider"></span>
 
+          <div class="post-nav-prev post-nav-item">
             
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-12-03 10:22:42 / 修改时间：17:45:29" itemprop="dateCreated datePublished" datetime="2018-12-03T10:22:42+08:00">2018-12-03</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/数据结构————动态树-Link-Cut-Tree/" itemprop="url" rel="index"><span itemprop="name">数据结构————动态树(Link Cut Tree)</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <center> 人生第一颗动态树</center>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/12/03/p3690-【模板】Link-Cut-Tree-（动态树）/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-         
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-       
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -859,151 +545,15 @@
   </article>
 
 
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/03/Hello-My-New-Blog/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="dreagonm">
-      <meta itemprop="description" content="心中无码，自然爆零">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="dreagonm's BLOG">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/12/03/Hello-My-New-Blog/" class="post-title-link" itemprop="http://yoursite.com/index.html">Hello, My New Blog</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-12-03 01:28:05" itemprop="dateCreated datePublished" datetime="2018-12-03T01:28:05+08:00">2018-12-03</time>
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-       
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -1295,6 +845,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.6.0"></script>
+
+
 
   
 
@@ -1337,16 +891,6 @@
 
   
   
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  
 
   
 
@@ -1366,7 +910,7 @@
   <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
   <script type="text/javascript">
   
-    bookmark.loadBookmark();
+    bookmark.scrollToMark('auto', "#更多");
   
   </script>
 
@@ -1377,16 +921,6 @@
   
 
   
-  
-    
-      
-    
-      
-    
-      
-    
-      
-    
   
 
   
