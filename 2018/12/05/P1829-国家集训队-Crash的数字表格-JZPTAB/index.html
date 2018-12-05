@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="双倍经验就是爽.jpg">
+  <meta name="description" content="推式子太快乐啦！虽然我好蠢而且dummy和maomao好巨（划掉）">
 <meta name="keywords" content="反演,数论,整除分块,莫比乌斯反演,GCD">
 <meta property="og:type" content="article">
-<meta property="og:title" content="P3455 [POI2007]ZAP-Queries（莫比乌斯反演）">
-<meta property="og:url" content="http://yoursite.com/2018/12/04/P3455-POI2007-ZAP-Queries/index.html">
+<meta property="og:title" content="P1829 [国家集训队]Crash的数字表格 &#x2F; JZPTAB">
+<meta property="og:url" content="http://yoursite.com/2018/12/05/P1829-国家集训队-Crash的数字表格-JZPTAB/index.html">
 <meta property="og:site_name" content="dreagonm&#39;s BLOG">
-<meta property="og:description" content="双倍经验就是爽.jpg">
+<meta property="og:description" content="推式子太快乐啦！虽然我好蠢而且dummy和maomao好巨（划掉）">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-04T13:17:49.983Z">
+<meta property="og:updated_time" content="2018-12-05T13:03:40.536Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="P3455 [POI2007]ZAP-Queries（莫比乌斯反演）">
-<meta name="twitter:description" content="双倍经验就是爽.jpg">
+<meta name="twitter:title" content="P1829 [国家集训队]Crash的数字表格 &#x2F; JZPTAB">
+<meta name="twitter:description" content="推式子太快乐啦！虽然我好蠢而且dummy和maomao好巨（划掉）">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/12/04/P3455-POI2007-ZAP-Queries/">
+  <link rel="canonical" href="http://yoursite.com/2018/12/05/P1829-国家集训队-Crash的数字表格-JZPTAB/">
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>P3455 [POI2007]ZAP-Queries（莫比乌斯反演） | dreagonm's BLOG</title>
+  <title>P1829 [国家集训队]Crash的数字表格 / JZPTAB | dreagonm's BLOG</title>
   
 
 
@@ -380,7 +380,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/04/P3455-POI2007-ZAP-Queries/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/05/P1829-国家集训队-Crash的数字表格-JZPTAB/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="dreagonm">
@@ -397,7 +397,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">P3455 [POI2007]ZAP-Queries（莫比乌斯反演）
+          <h1 class="post-title" itemprop="name headline">P1829 [国家集训队]Crash的数字表格 / JZPTAB
               
             
           </h1>
@@ -422,7 +422,7 @@
                 
               
 
-              <time title="创建时间：2018-12-04 21:14:40 / 修改时间：21:17:49" itemprop="dateCreated datePublished" datetime="2018-12-04T21:14:40+08:00">2018-12-04</time>
+              <time title="创建时间：2018-12-05 20:52:40 / 修改时间：21:03:40" itemprop="dateCreated datePublished" datetime="2018-12-05T20:52:40+08:00">2018-12-05</time>
             
 
             
@@ -478,15 +478,20 @@
       
 
       
-        <center> 双倍经验就是爽.jpg </center>
+        <center> 推式子太快乐啦！虽然我好蠢而且dummy和maomao好巨（划掉）<br></center>
 
 <a id="more"></a>
-<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>和YY的GCD类似但是更加简单了<br>类似的推一波公式即可<br>$$<br>F(n)=\sum_{n|d}f(d)<br>$$</p>
-<p>$$<br>f(n)=\sum_{n|d}\mu(\frac{d}{n})F(d)<br>$$</p>
-<p>$$<br>F(d)=\lfloor\frac{n}{d}\rfloor\times\lfloor\frac{m}{d}\rfloor<br>$$</p>
-<p>$$<br>f(x)=\sum_{x|d}\mu(\frac{d}{x})\times\lfloor\frac{n}{d}\rfloor\times\lfloor\frac{m}{d}\rfloor<br>$$</p>
-<p>$$<br>f(x)=\sum_{t=1}^{\lfloor\frac{n}{x}\rfloor}\mu(t)\times\lfloor\frac{n}{x\times t}\rfloor\times\lfloor\frac{m}{x\times t}\rfloor<br>$$<br>然后整除分块即可</p>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> T,n,m,mu[<span class="number">51000</span>],iprime[<span class="number">51000</span>],isprime[<span class="number">51000</span>],summu[<span class="number">51000</span>],cnt,k;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">prime</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    isprime[<span class="number">1</span>]=<span class="literal">true</span>;</span><br><span class="line">    mu[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!isprime[i])</span><br><span class="line">            iprime[++cnt]=i,mu[i]=<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=cnt&amp;&amp;iprime[j]*i&lt;=n;j++)&#123;</span><br><span class="line">            isprime[iprime[j]*i]=<span class="literal">true</span>;</span><br><span class="line">            mu[iprime[j]*i]=-mu[i];</span><br><span class="line">            <span class="keyword">if</span>(i%iprime[j]==<span class="number">0</span>)&#123;</span><br><span class="line">                mu[iprime[j]*i]=<span class="number">0</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        summu[i]=summu[i<span class="number">-1</span>]+mu[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> l=<span class="number">1</span>,r;l&lt;=min(n,m);l=r+<span class="number">1</span>)&#123;</span><br><span class="line">        r=min((n/(n/(l))),(m/(m/(l))));</span><br><span class="line">        ans+=<span class="number">1L</span>L*(summu[r]-summu[l<span class="number">-1</span>])*(n/(l*k))*(m/(l*k));</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    prime(<span class="number">50100</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</span><br><span class="line">    <span class="keyword">while</span>(T--)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>,&amp;n,&amp;m,&amp;k);</span><br><span class="line">        <span class="keyword">if</span>(n&lt;m)</span><br><span class="line">            swap(n,m);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,f(k));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>莫比乌斯反演的题目<br>首先这题有$O(\sqrt n)$的做法<del>但是我没写咕咕咕</del><br>然后就是爆推一波式子<br>$$<br>\sum_{i=1}^{n}\sum_{j=1}^{m}lcm(i,j)<br>$$</p>
+<p>$$<br>\sum_{i=1}^{n}\sum_{j=1}^{m}\frac{i\times j}{gcd(i,j)}<br>$$</p>
+<p>设$ gcd(i,j)=d$<br>$$<br>\sum_{d=1}^{n}d\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{d}\rfloor}i\times j\times[gcd(i,j)=1]<br>$$</p>
+<p>$$<br>p_1=\lfloor\frac{n}{d}\rfloor\ p_2=\lfloor\frac{m}{d}\rfloor<br>$$</p>
+<p>设$f(x)$为满足条件$1 \le i \le p_1$且$1 \le j \le p_2 $且$[gcd(i,j)=x]$的$i\times j$的和</p>
+<p>则可以推出$F(x)$为<br>$$<br>F(x)=\sum_{x|d}f(d)<br>$$<br>所以$F(x)$为满足条件$1 \le i \le p_1$且$1 \le j \le p_2 $且$[x|gcd(i,j)]$的$i\times j$的和</p>
+<p>所以<br>$$<br>F(x)=x^2\times \sum_{i=1}^{\lfloor\frac{p_1}{x}\rfloor}i\times \sum_{j=1}^{\lfloor\frac{p_2}{x}\rfloor}j<br>$$<br>因为<br>$$<br>f(x)=\sum_{x|d}\mu(\frac{d}{x})F(d)<br>$$<br>所以<br>$$<br>f(x)=\sum_{x|d}\mu(\frac{d}{x})\times d^2 \times \sum_{i=1}^{\lfloor\frac{p_1}{d}\rfloor}i\times \sum_{j=1}^{\lfloor\frac{p_2}{d}\rfloor}j<br>$$<br>所以<br>$$<br>f(x)=\sum_{t=1}\mu(t)\times (tx)^2 \times \sum_{i=1}^{\lfloor\frac{p_1}{tx}\rfloor}i\times \sum_{j=1}^{\lfloor\frac{p_2}{tx}\rfloor}j<br>$$</p>
+<p>$$<br>ans=\sum_{d=1}^{n}d\sum_{t=1}^{\lfloor\frac{n}{d}\rfloor}\mu(t)\times (t)^2 \times \sum_{i=1}^{\lfloor\frac{n}{td}\rfloor}i\times \sum_{j=1}^{\lfloor\frac{m}{td}\rfloor}j<br>$$</p>
+<p>然后两个整除分块搞定，复杂度$O(n)$</p>
+<p>然后dummy教了我一种新的计算方式<br>$$<br>\sum_{d=1}^{n}d\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{d}\rfloor}i\times j\times[gcd(i,j)=1]<br>$$<br>发现[gcd(i,j)=1]的形式有点眼熟<br>直接把$\mu$带进去算<br>$$<br>\sum_{d=1}^{n}d\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{d}\rfloor}i\times j\times \sum_{p|gcd(i,j)}\mu(p)<br>$$<br>算得<br>$$<br>\sum_{d=1}^nd\sum_{p=1}^{\lfloor\frac{n}{d}\rfloor}p^2\mu(p)\sum_{i=1}^{\lfloor\frac{n}{dp}\rfloor}i\sum_{j=1}^{\lfloor\frac{n}{dp}\rfloor}j<br>$$</p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INV = <span class="number">10050505</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD = <span class="number">20101009</span>;</span><br><span class="line"><span class="keyword">int</span> isprime[<span class="number">10010000</span>],iprime[<span class="number">10010000</span>],cnt,mu[<span class="number">10010000</span>],summu[<span class="number">10010000</span>],n,m;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">prime</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    isprime[n]=<span class="literal">true</span>;</span><br><span class="line">    mu[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!isprime[i])</span><br><span class="line">            iprime[++cnt]=i,mu[i]=<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=cnt&amp;&amp;iprime[j]*i&lt;=n;j++)&#123;</span><br><span class="line">            isprime[iprime[j]*i]=<span class="literal">true</span>;</span><br><span class="line">            mu[iprime[j]*i]=-mu[i];</span><br><span class="line">            <span class="keyword">if</span>(i%iprime[j]==<span class="number">0</span>)&#123;</span><br><span class="line">                mu[iprime[j]*i]=<span class="number">0</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        summu[i]=(summu[i<span class="number">-1</span>]%MOD+<span class="number">1L</span>L*(mu[i]%MOD+MOD)%MOD*i%MOD*i%MOD)%MOD;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">calc2</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> m)</span></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> l=<span class="number">1</span>,r;l&lt;=min(n,m);l=r+<span class="number">1</span>)&#123;</span><br><span class="line">        r=min(n/(n/l),m/(m/l));</span><br><span class="line">        ans=(ans%MOD+<span class="number">1L</span>L*(summu[r]-summu[l<span class="number">-1</span>]%MOD+MOD)%MOD*(<span class="number">1</span>+n/l)%MOD*(n/l)%MOD*INV%MOD*(<span class="number">1</span>+m/l)%MOD*(m/l)%MOD*INV%MOD)%MOD;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">calc1</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> m)</span></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> l=<span class="number">1</span>,r;l&lt;=min(n,m);l=r+<span class="number">1</span>)&#123;</span><br><span class="line">        r=min(n/(n/l),m/(m/l));</span><br><span class="line">        ans=(ans%MOD+<span class="number">1L</span>L*(r-l+<span class="number">1</span>)%MOD*(r+l)%MOD*INV%MOD*calc2(n/l,m/l)%MOD)%MOD;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    prime(<span class="number">10001000</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;n,&amp;m);</span><br><span class="line">    <span class="keyword">if</span>(n&lt;m)</span><br><span class="line">        swap(n,m);</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> ans=calc1(n,m);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld"</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -530,8 +535,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/04/P2257-YY的GCD/" rel="next" title="P2257 YY的GCD（莫比乌斯反演）">
-                <i class="fa fa-chevron-left"></i> P2257 YY的GCD（莫比乌斯反演）
+              <a href="/2018/12/04/P2522-HAOI2011-Problem-b/" rel="next" title="P2522 [HAOI2011]Problem b（莫比乌斯反演+容斥）">
+                <i class="fa fa-chevron-left"></i> P2522 [HAOI2011]Problem b（莫比乌斯反演+容斥）
               </a>
             
           </div>
@@ -539,10 +544,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/04/P2522-HAOI2011-Problem-b/" rel="prev" title="P2522 [HAOI2011]Problem b（莫比乌斯反演+容斥）">
-                P2522 [HAOI2011]Problem b（莫比乌斯反演+容斥） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
