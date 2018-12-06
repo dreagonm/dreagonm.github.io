@@ -108,24 +108,25 @@
 
 
 
-  <meta name="description" content="心中无码，自然爆零">
+  <meta name="description" content="dsu on tree跟冰茶祭有什么关系啊喂">
+<meta name="keywords" content="数据结构,树论,dsu on tree">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello, My New Blog">
-<meta property="og:url" content="http://yoursite.com/2018/12/03/Hello-My-New-Blog/index.html">
+<meta property="og:title" content="CF600E Lomsat gelral（dsu on tree）">
+<meta property="og:url" content="http://yoursite.com/2018/12/06/CF600E-Lomsat-gelral/index.html">
 <meta property="og:site_name" content="dreagonm&#39;s BLOG">
-<meta property="og:description" content="心中无码，自然爆零">
+<meta property="og:description" content="dsu on tree跟冰茶祭有什么关系啊喂">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-02T17:28:05.251Z">
+<meta property="og:updated_time" content="2018-12-06T12:54:58.875Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello, My New Blog">
-<meta name="twitter:description" content="心中无码，自然爆零">
+<meta name="twitter:title" content="CF600E Lomsat gelral（dsu on tree）">
+<meta name="twitter:description" content="dsu on tree跟冰茶祭有什么关系啊喂">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/12/03/Hello-My-New-Blog/">
+  <link rel="canonical" href="http://yoursite.com/2018/12/06/CF600E-Lomsat-gelral/">
 
 
 
@@ -135,7 +136,7 @@
   };
 </script>
 
-  <title>Hello, My New Blog | dreagonm's BLOG</title>
+  <title>CF600E Lomsat gelral（dsu on tree） | dreagonm's BLOG</title>
   
 
 
@@ -379,7 +380,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/03/Hello-My-New-Blog/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/06/CF600E-Lomsat-gelral/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="dreagonm">
@@ -396,7 +397,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello, My New Blog
+          <h1 class="post-title" itemprop="name headline">CF600E Lomsat gelral（dsu on tree）
               
             
           </h1>
@@ -421,12 +422,34 @@
                 
               
 
-              <time title="创建时间：2018-12-03 01:28:05" itemprop="dateCreated datePublished" datetime="2018-12-03T01:28:05+08:00">2018-12-03</time>
+              <time title="创建时间：2018-12-06 20:37:07 / 修改时间：20:54:58" itemprop="dateCreated datePublished" datetime="2018-12-06T20:37:07+08:00">2018-12-06</time>
             
 
+            
+              
+
+              
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/数据结构————dsu-on-tree/" itemprop="url" rel="index"><span itemprop="name">数据结构————dsu on tree</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -455,7 +478,13 @@
       
 
       
-        
+        <p><center> dsu on tree跟冰茶祭有什么关系啊喂 </center><br><a id="more"></a><br>dsu on tree的模板题</p>
+<h4 id="思想与解题过程"><a href="#思想与解题过程" class="headerlink" title="思想与解题过程"></a>思想与解题过程</h4><p>类似树链剖分的思路</p>
+<p>先统计轻儿子的贡献，再统计重儿子的贡献，得出当前节点的答案后再减去轻儿子对答案的贡献</p>
+<p>似乎很蠢</p>
+<p>但是复杂度是$O(nlogn)$的，在没有修改的情况下，可以把树上莫队吊起来打</p>
+<p>没了</p>
+<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> cnt,u[<span class="number">100100</span>&lt;&lt;<span class="number">1</span>],heason[<span class="number">100100</span>],v[<span class="number">100100</span>&lt;&lt;<span class="number">1</span>],sz[<span class="number">100100</span>],fir[<span class="number">100100</span>],nxt[<span class="number">100100</span>&lt;&lt;<span class="number">1</span>],vis[<span class="number">100100</span>];</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> val[<span class="number">100100</span>],ans[<span class="number">100100</span>],w_p[<span class="number">100100</span>],sum,maxv,n;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addedge</span><span class="params">(<span class="keyword">int</span> ui,<span class="keyword">int</span> vi)</span></span>&#123;</span><br><span class="line">    ++cnt;</span><br><span class="line">    u[cnt]=ui;</span><br><span class="line">    v[cnt]=vi;</span><br><span class="line">    nxt[cnt]=fir[ui];</span><br><span class="line">    fir[ui]=cnt;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> f,<span class="keyword">int</span> c)</span></span>&#123;</span><br><span class="line">    val[w_p[u]]+=c;</span><br><span class="line">    <span class="keyword">if</span>(c&gt;<span class="number">0</span>&amp;&amp;val[w_p[u]]&gt;=maxv)&#123;</span><br><span class="line">        <span class="keyword">if</span>(val[w_p[u]]&gt;maxv)</span><br><span class="line">            maxv=val[w_p[u]],sum=<span class="number">0</span>;</span><br><span class="line">        sum+=w_p[u];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=fir[u];i;i=nxt[i])&#123;</span><br><span class="line">        <span class="keyword">if</span>(v[i]==f||vis[v[i]])</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        change(v[i],u,c);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs1</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> f)</span></span>&#123;</span><br><span class="line">    sz[u]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=fir[u];i;i=nxt[i])&#123;</span><br><span class="line">        <span class="keyword">if</span>(v[i]==f)</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        dfs1(v[i],u);</span><br><span class="line">        sz[u]+=sz[v[i]];</span><br><span class="line">        <span class="keyword">if</span>(heason[u]==<span class="number">0</span>||sz[heason[u]]&lt;sz[v[i]])</span><br><span class="line">            heason[u]=v[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs2</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> f,<span class="keyword">int</span> islight)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=fir[u];i;i=nxt[i])&#123;</span><br><span class="line">        <span class="keyword">if</span>(v[i]==f||v[i]==heason[u])</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        dfs2(v[i],u,<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(heason[u]) dfs2(heason[u],u,<span class="number">0</span>),vis[heason[u]]=<span class="number">1</span>;</span><br><span class="line">    change(u,f,<span class="number">1</span>);</span><br><span class="line">    ans[u]=sum;</span><br><span class="line">    <span class="keyword">if</span>(heason[u]) vis[heason[u]]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(islight) change(u,f,<span class="number">-1</span>),sum=maxv=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%lld"</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%lld"</span>,&amp;w_p[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n<span class="number">-1</span>;i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> a,b;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;a,&amp;b);</span><br><span class="line">        addedge(a,b);</span><br><span class="line">        addedge(b,a);</span><br><span class="line">    &#125;</span><br><span class="line">    dfs1(<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">    dfs2(<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld "</span>,ans[i]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -476,6 +505,16 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+          
+            <a href="/tags/树论/" rel="tag"># 树论</a>
+          
+            <a href="/tags/dsu-on-tree/" rel="tag"># dsu on tree</a>
+          
+        </div>
+      
 
       
       
@@ -485,15 +524,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/12/06/P4213-【模板】杜教筛（Sum）/" rel="next" title="P4213 【模板】杜教筛（Sum）（杜教筛）">
+                <i class="fa fa-chevron-left"></i> P4213 【模板】杜教筛（Sum）（杜教筛）
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/03/p3690-【模板】Link-Cut-Tree-（动态树）/" rel="prev" title="p3690 【模板】Link Cut Tree （动态树）">
-                p3690 【模板】Link Cut Tree （动态树） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -538,8 +577,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -696,6 +744,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#思想与解题过程"><span class="nav-number">1.</span> <span class="nav-text">思想与解题过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现"><span class="nav-number">2.</span> <span class="nav-text">代码实现</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
