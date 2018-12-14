@@ -108,25 +108,22 @@
 
 
 
-  <meta name="description" content="推式子太快乐啦！虽然我好蠢而且dummy和maomao好巨（划掉）">
-<meta name="keywords" content="反演,数论,整除分块,莫比乌斯反演,GCD">
+  <meta name="keywords" content="数据结构,分治,cdq分治,树状数组,离线处理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="P1829 [国家集训队]Crash的数字表格 &#x2F; JZPTAB">
-<meta property="og:url" content="http://yoursite.com/2018/12/05/P1829-国家集训队-Crash的数字表格-JZPTAB/index.html">
+<meta property="og:title" content="P4390 [BOI2007]Mokia 摩基亚（cdq分治）">
+<meta property="og:url" content="http://yoursite.com/2018/12/14/P4390-BOI2007-Mokia-摩基亚/index.html">
 <meta property="og:site_name" content="dreagonm&#39;s BLOG">
-<meta property="og:description" content="推式子太快乐啦！虽然我好蠢而且dummy和maomao好巨（划掉）">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-05T13:03:40.536Z">
+<meta property="og:updated_time" content="2018-12-14T09:07:07.906Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="P1829 [国家集训队]Crash的数字表格 &#x2F; JZPTAB">
-<meta name="twitter:description" content="推式子太快乐啦！虽然我好蠢而且dummy和maomao好巨（划掉）">
+<meta name="twitter:title" content="P4390 [BOI2007]Mokia 摩基亚（cdq分治）">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/12/05/P1829-国家集训队-Crash的数字表格-JZPTAB/">
+  <link rel="canonical" href="http://yoursite.com/2018/12/14/P4390-BOI2007-Mokia-摩基亚/">
 
 
 
@@ -136,7 +133,7 @@
   };
 </script>
 
-  <title>P1829 [国家集训队]Crash的数字表格 / JZPTAB | dreagonm's BLOG</title>
+  <title>P4390 [BOI2007]Mokia 摩基亚（cdq分治） | dreagonm's BLOG</title>
   
 
 
@@ -380,7 +377,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/05/P1829-国家集训队-Crash的数字表格-JZPTAB/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/14/P4390-BOI2007-Mokia-摩基亚/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="dreagonm">
@@ -397,7 +394,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">P1829 [国家集训队]Crash的数字表格 / JZPTAB
+          <h1 class="post-title" itemprop="name headline">P4390 [BOI2007]Mokia 摩基亚（cdq分治）
               
             
           </h1>
@@ -422,7 +419,7 @@
                 
               
 
-              <time title="创建时间：2018-12-05 20:52:40 / 修改时间：21:03:40" itemprop="dateCreated datePublished" datetime="2018-12-05T20:52:40+08:00">2018-12-05</time>
+              <time title="创建时间：2018-12-14 16:59:27 / 修改时间：17:07:07" itemprop="dateCreated datePublished" datetime="2018-12-14T16:59:27+08:00">2018-12-14</time>
             
 
             
@@ -444,7 +441,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/数论————莫比乌斯反演/" itemprop="url" rel="index"><span itemprop="name">数论————莫比乌斯反演</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/分治算法————cdq分治/" itemprop="url" rel="index"><span itemprop="name">分治算法————cdq分治</span></a></span>
 
                 
                 
@@ -478,20 +475,12 @@
       
 
       
-        <center> 推式子太快乐啦！虽然我好蠢而且dummy和maomao好巨（划掉）<br></center>
+        <center> </center>
 
 <a id="more"></a>
-<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>莫比乌斯反演的题目<br>首先这题有$O(\sqrt n)$的做法<del>但是我没写咕咕咕</del><br>然后就是爆推一波式子<br>$$<br>\sum_{i=1}^{n}\sum_{j=1}^{m}lcm(i,j)<br>$$</p>
-<p>$$<br>\sum_{i=1}^{n}\sum_{j=1}^{m}\frac{i\times j}{gcd(i,j)}<br>$$</p>
-<p>设$ gcd(i,j)=d$<br>$$<br>\sum_{d=1}^{n}d\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{d}\rfloor}i\times j\times[gcd(i,j)=1]<br>$$</p>
-<p>$$<br>p_1=\lfloor\frac{n}{d}\rfloor\ p_2=\lfloor\frac{m}{d}\rfloor<br>$$</p>
-<p>设$f(x)$为满足条件$1 \le i \le p_1$且$1 \le j \le p_2 $且$[gcd(i,j)=x]$的$i\times j$的和</p>
-<p>则可以推出$F(x)$为<br>$$<br>F(x)=\sum_{x|d}f(d)<br>$$<br>所以$F(x)$为满足条件$1 \le i \le p_1$且$1 \le j \le p_2 $且$[x|gcd(i,j)]$的$i\times j$的和</p>
-<p>所以<br>$$<br>F(x)=x^2\times \sum_{i=1}^{\lfloor\frac{p_1}{x}\rfloor}i\times \sum_{j=1}^{\lfloor\frac{p_2}{x}\rfloor}j<br>$$<br>因为<br>$$<br>f(x)=\sum_{x|d}\mu(\frac{d}{x})F(d)<br>$$<br>所以<br>$$<br>f(x)=\sum_{x|d}\mu(\frac{d}{x})\times d^2 \times \sum_{i=1}^{\lfloor\frac{p_1}{d}\rfloor}i\times \sum_{j=1}^{\lfloor\frac{p_2}{d}\rfloor}j<br>$$<br>所以<br>$$<br>f(x)=\sum_{t=1}\mu(t)\times (tx)^2 \times \sum_{i=1}^{\lfloor\frac{p_1}{tx}\rfloor}i\times \sum_{j=1}^{\lfloor\frac{p_2}{tx}\rfloor}j<br>$$</p>
-<p>$$<br>ans=\sum_{d=1}^{n}d\sum_{t=1}^{\lfloor\frac{n}{d}\rfloor}\mu(t)\times (t)^2 \times \sum_{i=1}^{\lfloor\frac{n}{td}\rfloor}i\times \sum_{j=1}^{\lfloor\frac{m}{td}\rfloor}j<br>$$</p>
-<p>然后两个整除分块搞定，复杂度$O(n)$</p>
-<p>然后dummy教了我一种新的计算方式<br>$$<br>\sum_{d=1}^{n}d\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{d}\rfloor}i\times j\times[gcd(i,j)=1]<br>$$<br>发现[gcd(i,j)=1]的形式有点眼熟<br>直接把$\mu$带进去算<br>$$<br>\sum_{d=1}^{n}d\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{d}\rfloor}i\times j\times \sum_{p|gcd(i,j)}\mu(p)<br>$$<br>算得<br>$$<br>\sum_{d=1}^nd\sum_{p=1}^{\lfloor\frac{n}{d}\rfloor}p^2\mu(p)\sum_{i=1}^{\lfloor\frac{n}{dp}\rfloor}i\sum_{j=1}^{\lfloor\frac{n}{dp}\rfloor}j<br>$$</p>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INV = <span class="number">10050505</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD = <span class="number">20101009</span>;</span><br><span class="line"><span class="keyword">int</span> isprime[<span class="number">10010000</span>],iprime[<span class="number">10010000</span>],cnt,mu[<span class="number">10010000</span>],summu[<span class="number">10010000</span>],n,m;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">prime</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    isprime[n]=<span class="literal">true</span>;</span><br><span class="line">    mu[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!isprime[i])</span><br><span class="line">            iprime[++cnt]=i,mu[i]=<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=cnt&amp;&amp;iprime[j]*i&lt;=n;j++)&#123;</span><br><span class="line">            isprime[iprime[j]*i]=<span class="literal">true</span>;</span><br><span class="line">            mu[iprime[j]*i]=-mu[i];</span><br><span class="line">            <span class="keyword">if</span>(i%iprime[j]==<span class="number">0</span>)&#123;</span><br><span class="line">                mu[iprime[j]*i]=<span class="number">0</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        summu[i]=(summu[i<span class="number">-1</span>]%MOD+<span class="number">1L</span>L*(mu[i]%MOD+MOD)%MOD*i%MOD*i%MOD)%MOD;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">calc2</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> m)</span></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> l=<span class="number">1</span>,r;l&lt;=min(n,m);l=r+<span class="number">1</span>)&#123;</span><br><span class="line">        r=min(n/(n/l),m/(m/l));</span><br><span class="line">        ans=(ans%MOD+<span class="number">1L</span>L*(summu[r]-summu[l<span class="number">-1</span>]%MOD+MOD)%MOD*(<span class="number">1</span>+n/l)%MOD*(n/l)%MOD*INV%MOD*(<span class="number">1</span>+m/l)%MOD*(m/l)%MOD*INV%MOD)%MOD;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">calc1</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> m)</span></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> l=<span class="number">1</span>,r;l&lt;=min(n,m);l=r+<span class="number">1</span>)&#123;</span><br><span class="line">        r=min(n/(n/l),m/(m/l));</span><br><span class="line">        ans=(ans%MOD+<span class="number">1L</span>L*(r-l+<span class="number">1</span>)%MOD*(r+l)%MOD*INV%MOD*calc2(n/l,m/l)%MOD)%MOD;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    prime(<span class="number">10001000</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;n,&amp;m);</span><br><span class="line">    <span class="keyword">if</span>(n&lt;m)</span><br><span class="line">        swap(n,m);</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> ans=calc1(n,m);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld"</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一样是cdq的板子</p>
+<p>照着<a href="/2018/12/14/P2163-SHOI2007-园丁的烦恼/">园丁的烦恼</a>就好了</p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> w,cntq,cnta,nothing,type,qid,aid;</span><br><span class="line"><span class="keyword">namespace</span> BIT&#123;</span><br><span class="line">    <span class="keyword">int</span> bit[<span class="number">2000100</span>];</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">lowbit</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x&amp;(-x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> pos,<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(pos&lt;=w)&#123;</span><br><span class="line">            bit[pos]+=x;</span><br><span class="line">            pos+=lowbit(pos);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> pos)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(pos)&#123;</span><br><span class="line">            ans+=bit[pos];</span><br><span class="line">            pos-=lowbit(pos);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">clear</span><span class="params">(<span class="keyword">int</span> pos)</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(pos&lt;=w)&#123;</span><br><span class="line">            <span class="keyword">if</span>(bit[pos])</span><br><span class="line">                bit[pos]=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">else</span>   </span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            pos+=lowbit(pos);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> ans[<span class="number">10100</span>];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Query</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> type,val,posx,posy,IorD,aid;</span><br><span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> Query &amp;b) <span class="keyword">const</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> posx==b.posx?type&lt;b.type:posx&lt;b.posx;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;query[<span class="number">200100</span>];</span><br><span class="line">Query tmp[<span class="number">200100</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">cdq</span><span class="params">(<span class="keyword">int</span> L,<span class="keyword">int</span> R)</span></span>&#123;</span><br><span class="line">    <span class="comment">// printf("%d %d",L,R);</span></span><br><span class="line">    <span class="keyword">if</span>(R&lt;=L+<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">int</span> mid=(L+R)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">    cdq(L,mid);</span><br><span class="line">    cdq(mid,R);</span><br><span class="line">    <span class="keyword">int</span> l=L,r=mid,tot=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(l&lt;mid&amp;&amp;r&lt;R)&#123;</span><br><span class="line">        <span class="keyword">if</span>(query[l]&lt;query[r])&#123;</span><br><span class="line">            <span class="keyword">if</span>(query[l].type==<span class="number">1</span>)</span><br><span class="line">                BIT::add(query[l].posy,query[l].val);</span><br><span class="line">            tmp[++tot]=query[l++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(query[r].type==<span class="number">2</span>)</span><br><span class="line">                ans[query[r].aid]+=query[r].IorD*BIT::query(query[r].posy);</span><br><span class="line">            tmp[++tot]=query[r++];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(l&lt;mid)</span><br><span class="line">        tmp[++tot]=query[l++];</span><br><span class="line">    <span class="keyword">while</span>(r&lt;R)&#123;</span><br><span class="line">        <span class="keyword">if</span>(query[r].type==<span class="number">2</span>)</span><br><span class="line">            ans[query[r].aid]+=query[r].IorD*BIT::query(query[r].posy);</span><br><span class="line">        tmp[++tot]=query[r++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=tot;i++)&#123;</span><br><span class="line">        BIT::clear(tmp[i].posy);    </span><br><span class="line">        query[L+i<span class="number">-1</span>]=tmp[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123; </span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;nothing,&amp;w);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;type);</span><br><span class="line">    w++;</span><br><span class="line">    <span class="keyword">while</span>(type!=<span class="number">3</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(type==<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> x,y,a;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>,&amp;x,&amp;y,&amp;a);</span><br><span class="line">            <span class="comment">// x+=2;y+=2;</span></span><br><span class="line">            x++,y++;</span><br><span class="line"></span><br><span class="line">            query[++qid].type=<span class="number">1</span>;</span><br><span class="line">            query[qid].posy=y; </span><br><span class="line">            query[qid].posx=x;</span><br><span class="line">            query[qid].val=a;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">int</span> x1,y1,x2,y2;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d %d %d %d"</span>,&amp;x1,&amp;y1,&amp;x2,&amp;y2);</span><br><span class="line">            <span class="comment">// x1+=2,x2+=2,y1+=2,y2+=2;</span></span><br><span class="line">            x1++,x2++,y1++,y2++;</span><br><span class="line"></span><br><span class="line">            query[++qid].type=<span class="number">2</span>;</span><br><span class="line">            query[qid].aid=++aid;</span><br><span class="line">            query[qid].IorD=<span class="number">1</span>;</span><br><span class="line">            query[qid].posx=x2;</span><br><span class="line">            query[qid].posy=y2;</span><br><span class="line">        </span><br><span class="line">            query[++qid].type=<span class="number">2</span>;</span><br><span class="line">            query[qid].aid=aid;</span><br><span class="line">            query[qid].IorD=<span class="number">-1</span>;</span><br><span class="line">            query[qid].posx=x1<span class="number">-1</span>;</span><br><span class="line">            query[qid].posy=y2;</span><br><span class="line"></span><br><span class="line">            query[++qid].type=<span class="number">2</span>;</span><br><span class="line">            query[qid].aid=aid;</span><br><span class="line">            query[qid].IorD=<span class="number">-1</span>;</span><br><span class="line">            query[qid].posx=x2;</span><br><span class="line">            query[qid].posy=y1<span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">            query[++qid].type=<span class="number">2</span>;</span><br><span class="line">            query[qid].aid=aid;</span><br><span class="line">            query[qid].IorD=<span class="number">1</span>;</span><br><span class="line">            query[qid].posx=x1<span class="number">-1</span>;</span><br><span class="line">            query[qid].posy=y1<span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;type);</span><br><span class="line">    &#125;</span><br><span class="line">    cdq(<span class="number">0</span>,qid+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=aid;i++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans[i]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -514,15 +503,15 @@
       
         <div class="post-tags">
           
-            <a href="/tags/反演/" rel="tag"># 反演</a>
+            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
           
-            <a href="/tags/数论/" rel="tag"># 数论</a>
+            <a href="/tags/分治/" rel="tag"># 分治</a>
           
-            <a href="/tags/整除分块/" rel="tag"># 整除分块</a>
+            <a href="/tags/cdq分治/" rel="tag"># cdq分治</a>
           
-            <a href="/tags/莫比乌斯反演/" rel="tag"># 莫比乌斯反演</a>
+            <a href="/tags/树状数组/" rel="tag"># 树状数组</a>
           
-            <a href="/tags/GCD/" rel="tag"># GCD</a>
+            <a href="/tags/离线处理/" rel="tag"># 离线处理</a>
           
         </div>
       
@@ -535,8 +524,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/04/P2522-HAOI2011-Problem-b/" rel="next" title="P2522 [HAOI2011]Problem b（莫比乌斯反演+容斥）">
-                <i class="fa fa-chevron-left"></i> P2522 [HAOI2011]Problem b（莫比乌斯反演+容斥）
+              <a href="/2018/12/14/P2163-SHOI2007-园丁的烦恼/" rel="next" title="P2163 [SHOI2007]园丁的烦恼（cdq分治）">
+                <i class="fa fa-chevron-left"></i> P2163 [SHOI2007]园丁的烦恼（cdq分治）
               </a>
             
           </div>
@@ -544,10 +533,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/06/P4213-【模板】杜教筛（Sum）/" rel="prev" title="P4213 【模板】杜教筛（Sum）（杜教筛）">
-                P4213 【模板】杜教筛（Sum）（杜教筛） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -817,7 +802,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#思路"><span class="nav-number">1.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#代码"><span class="nav-number">1.</span> <span class="nav-text">代码</span></a></li></ol></div>
             
 
           </div>
