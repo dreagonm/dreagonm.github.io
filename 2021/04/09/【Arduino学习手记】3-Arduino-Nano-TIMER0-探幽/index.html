@@ -20,17 +20,24 @@
     var CONFIG = {"hostname":"dreagonm.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="an algorithm website">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Dreagonm&#39;s BLOG">
-<meta property="og:url" content="https://dreagonm.github.io/tags/%E6%A8%A1%E6%9D%BF/index.html">
+  <meta name="description" content="前言本文主要内容在于对Arduino Nano的定时器0的探索，注意到Arduino Nano的芯片型号为ATmega328p，而网上并没有这方面的数据手册翻译所以本人将这部分内容进行一定的翻译并进行一定程度的解释 手册正文TIMER0概述ATmega328p芯片共有三个定时器，分别为TIMER0，TIMER1，TIMER2，要注意TIMER0作为一个8位定时器，许多delay函数都依赖它TIME">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Arduino学习手记】3 Arduino Nano TIMER0 探幽">
+<meta property="og:url" content="https://dreagonm.github.io/2021/04/09/%E3%80%90Arduino%E5%AD%A6%E4%B9%A0%E6%89%8B%E8%AE%B0%E3%80%913-Arduino-Nano-TIMER0-%E6%8E%A2%E5%B9%BD/index.html">
 <meta property="og:site_name" content="Dreagonm&#39;s BLOG">
-<meta property="og:description" content="an algorithm website">
+<meta property="og:description" content="前言本文主要内容在于对Arduino Nano的定时器0的探索，注意到Arduino Nano的芯片型号为ATmega328p，而网上并没有这方面的数据手册翻译所以本人将这部分内容进行一定的翻译并进行一定程度的解释 手册正文TIMER0概述ATmega328p芯片共有三个定时器，分别为TIMER0，TIMER1，TIMER2，要注意TIMER0作为一个8位定时器，许多delay函数都依赖它TIME">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://dreagonm.github.io/2021/04/09/%E3%80%90Arduino%E5%AD%A6%E4%B9%A0%E6%89%8B%E8%AE%B0%E3%80%913-Arduino-Nano-TIMER0-%E6%8E%A2%E5%B9%BD/14-1.png">
+<meta property="article:published_time" content="2021-04-09T12:26:43.000Z">
+<meta property="article:modified_time" content="2021-04-09T12:52:59.932Z">
 <meta property="article:author" content="Dreagonm">
+<meta property="article:tag" content="嵌入式">
+<meta property="article:tag" content="Arduino">
+<meta property="article:tag" content="定时器">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dreagonm.github.io/2021/04/09/%E3%80%90Arduino%E5%AD%A6%E4%B9%A0%E6%89%8B%E8%AE%B0%E3%80%913-Arduino-Nano-TIMER0-%E6%8E%A2%E5%B9%BD/14-1.png">
 
-<link rel="canonical" href="https://dreagonm.github.io/tags/%E6%A8%A1%E6%9D%BF/">
+<link rel="canonical" href="https://dreagonm.github.io/2021/04/09/%E3%80%90Arduino%E5%AD%A6%E4%B9%A0%E6%89%8B%E8%AE%B0%E3%80%913-Arduino-Nano-TIMER0-%E6%8E%A2%E5%B9%BD/">
 
 
 <script id="page-configurations">
@@ -38,12 +45,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>标签: 模板 | Dreagonm's BLOG</title>
+  <title>【Arduino学习手记】3 Arduino Nano TIMER0 探幽 | Dreagonm's BLOG</title>
   
 
 
@@ -157,51 +164,107 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">模板
-          <small>标签</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://dreagonm.github.io/2021/04/09/%E3%80%90Arduino%E5%AD%A6%E4%B9%A0%E6%89%8B%E8%AE%B0%E3%80%913-Arduino-Nano-TIMER0-%E6%8E%A2%E5%B9%BD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Dreagonm">
+      <meta itemprop="description" content="an algorithm website">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dreagonm's BLOG">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【Arduino学习手记】3 Arduino Nano TIMER0 探幽
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-09 20:26:43 / 修改时间：20:52:59" itemprop="dateCreated datePublished" datetime="2021-04-09T20:26:43+08:00">2021-04-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Arduino/" itemprop="url" rel="index"><span itemprop="name">Arduino</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文主要内容在于对Arduino Nano的定时器0的探索，注意到Arduino Nano的芯片型号为ATmega328p，而网上并没有这方面的数据手册翻译<br>所以本人将这部分内容进行一定的翻译并进行一定程度的解释</p>
+<h1 id="手册正文"><a href="#手册正文" class="headerlink" title="手册正文"></a>手册正文</h1><h2 id="TIMER0概述"><a href="#TIMER0概述" class="headerlink" title="TIMER0概述"></a>TIMER0概述</h2><p>ATmega328p芯片共有三个定时器，分别为TIMER0，TIMER1，TIMER2，要注意TIMER0作为一个8位定时器，许多delay函数都依赖它<br>TIMER0除了常规的定时中断功能外，还可操纵引脚输出PWM信号，查阅数据手册得知，TIMER0可操控的引脚为Pin6(OC0A)和Pin5(OC0B)</p>
+<h2 id="8-bit-Timer-Counter0-with-PWM"><a href="#8-bit-Timer-Counter0-with-PWM" class="headerlink" title="8-bit Timer/Counter0 with PWM"></a>8-bit Timer/Counter0 with PWM</h2><h3 id="功能特性"><a href="#功能特性" class="headerlink" title="功能特性"></a>功能特性</h3><pre><code>- 两个独立的输出比较单元
+- 双缓冲区的输出比较寄存器
+- 当值匹配时自动清空计时器（自动重装载）
+- 排除小错误，自动修正相位的PWM输出
+- 可变的PWM周期
+- 频率发生器
+- 三个独立的中断源（TOV0，OCF0A，OCF0B）
+</code></pre><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>TIMER0是一个通用的八位计时器，拥有两个独立的输出比较单元和PWM外设。也可用于准确的程序运行计时（事件管理）和波形生成</p>
+<p>下图是一个八位定时器的示意图</p>
+<p><img src="14-1.png" alt="14-1.png"></p>
+<p><strong> PRTIM0位必须被设置为0才能启动TIMER/COUNTER0模组</strong></p>
+<h4 id="约定与定义"><a href="#约定与定义" class="headerlink" title="约定与定义"></a>约定与定义</h4><p>以下给出一些约定的符号，便于之后的理解</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-03-31T20:34:09+08:00"
-              content="2021-03-31">
-          03-31
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag"># 嵌入式</a>
+              <a href="/tags/Arduino/" rel="tag"># Arduino</a>
+              <a href="/tags/%E5%AE%9A%E6%97%B6%E5%99%A8/" rel="tag"># 定时器</a>
+          </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/03/31/P3804-%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91%E5%90%8E%E7%BC%80%E8%87%AA%E5%8A%A8%E6%9C%BA-SAM/" itemprop="url">
-            <span itemprop="name">P3804 【模板】后缀自动机 (SAM)</span>
-          </a>
-      </div>
+        
 
-    </header>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/04/04/%E3%80%90Arduino%E5%AD%A6%E4%B9%A0%E6%89%8B%E8%AE%B0%E3%80%912-%E7%94%A8VScode%E5%86%99Arduino%E7%A8%8B%E5%BA%8F/" rel="prev" title="【Arduino学习手记】2 用VScode写Arduino程序">
+      <i class="fa fa-chevron-left"></i> 【Arduino学习手记】2 用VScode写Arduino程序
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/04/21/%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87STCISP%E7%83%A7%E5%86%99STC%E5%8D%95%E7%89%87%E6%9C%BA%E7%9A%84EEPROM/" rel="next" title="如何通过STCISP烧写STC单片机的EEPROM">
+      如何通过STCISP烧写STC单片机的EEPROM <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
   </article>
-
-    </div>
-  </div>
   
   
-  
-
   
 
 
@@ -254,6 +317,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%8B%E5%86%8C%E6%AD%A3%E6%96%87"><span class="nav-number">2.</span> <span class="nav-text">手册正文</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#TIMER0%E6%A6%82%E8%BF%B0"><span class="nav-number">2.1.</span> <span class="nav-text">TIMER0概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-bit-Timer-Counter0-with-PWM"><span class="nav-number">2.2.</span> <span class="nav-text">8-bit Timer&#x2F;Counter0 with PWM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD%E7%89%B9%E6%80%A7"><span class="nav-number">2.2.1.</span> <span class="nav-text">功能特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-number">2.2.2.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BA%A6%E5%AE%9A%E4%B8%8E%E5%AE%9A%E4%B9%89"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">约定与定义</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
