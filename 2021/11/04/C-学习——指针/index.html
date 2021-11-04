@@ -20,21 +20,21 @@
     var CONFIG = {"hostname":"dreagonm.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="用DFS解决简单的2-SAT问题">
+  <meta name="description" content="对C++中指针的常用知识的一些总结">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HDU3062 Party">
-<meta property="og:url" content="https://dreagonm.github.io/2021/05/25/HDU3062-Party/index.html">
+<meta property="og:title" content="指针知识复习">
+<meta property="og:url" content="https://dreagonm.github.io/2021/11/04/C-%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E6%8C%87%E9%92%88/index.html">
 <meta property="og:site_name" content="Dreagonm&#39;s BLOG">
-<meta property="og:description" content="用DFS解决简单的2-SAT问题">
+<meta property="og:description" content="对C++中指针的常用知识的一些总结">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-05-25T11:58:24.000Z">
-<meta property="article:modified_time" content="2021-05-25T12:12:02.658Z">
+<meta property="article:published_time" content="2021-11-04T15:30:20.000Z">
+<meta property="article:modified_time" content="2021-11-04T15:34:18.541Z">
 <meta property="article:author" content="Dreagonm">
-<meta property="article:tag" content="2-SAT">
-<meta property="article:tag" content="DFS">
+<meta property="article:tag" content="C++知识">
+<meta property="article:tag" content="C++指针">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://dreagonm.github.io/2021/05/25/HDU3062-Party/">
+<link rel="canonical" href="https://dreagonm.github.io/2021/11/04/C-%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E6%8C%87%E9%92%88/">
 
 
 <script id="page-configurations">
@@ -47,7 +47,7 @@
   };
 </script>
 
-  <title>HDU3062 Party | Dreagonm's BLOG</title>
+  <title>指针知识复习 | Dreagonm's BLOG</title>
   
 
 
@@ -168,7 +168,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://dreagonm.github.io/2021/05/25/HDU3062-Party/">
+    <link itemprop="mainEntityOfPage" href="https://dreagonm.github.io/2021/11/04/C-%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E6%8C%87%E9%92%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -181,7 +181,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          HDU3062 Party
+          指针知识复习
         </h1>
 
         <div class="post-meta">
@@ -192,7 +192,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-25 19:58:24 / 修改时间：20:12:02" itemprop="dateCreated datePublished" datetime="2021-05-25T19:58:24+08:00">2021-05-25</time>
+              <time title="创建时间：2021-11-04 23:30:20 / 修改时间：23:34:18" itemprop="dateCreated datePublished" datetime="2021-11-04T23:30:20+08:00">2021-11-04</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -200,12 +200,12 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/2-SAT%E9%97%AE%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">2-SAT问题</span></a>
+                  <a href="/categories/C-%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">C++学习</span></a>
                 </span>
             </span>
 
           
-            <div class="post-description">用DFS解决简单的2-SAT问题</div>
+            <div class="post-description">对C++中指针的常用知识的一些总结</div>
 
         </div>
       </header>
@@ -216,9 +216,72 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>有n对夫妻被邀请参加一个聚会，因为场地的问题，每对夫妻中只有1人可以列席。在2n个人中，某些人之间有着很大的矛盾（当然夫妻之间是没有矛盾的），有矛盾的2个人是不会同时出现在聚会上的。有没有可能会有n个人同时列席？</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>每对夫妻只能取两种值，可以转化成显然的2-SAT问题<br>对于$i \vee j$，可以连边$\neg i \rightarrow j$和$\neg j \rightarrow i$<br>然后dfs求解即可</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">int</span> mark[<span class="number">2010</span>];</span><br><span class="line">vector&lt;<span class="keyword">int</span>&gt; G[<span class="number">2010</span>];</span><br><span class="line">stack&lt;<span class="keyword">int</span>&gt; S;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addedge</span><span class="params">(<span class="keyword">int</span> ui,<span class="keyword">int</span> vi)</span></span>&#123;</span><br><span class="line">    G[ui].<span class="built_in">push_back</span>(vi);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(mark[u^<span class="number">1</span>])</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span>(mark[u])</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    mark[u]=<span class="number">1</span>;</span><br><span class="line">    S.<span class="built_in">push</span>(u);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;G[u].<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">        <span class="keyword">bool</span> req=<span class="built_in">dfs</span>(G[u][i]);</span><br><span class="line">        <span class="keyword">if</span>(!req)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> A1,A2,C1,C2;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d %d %d %d&quot;</span>,&amp;A1,&amp;A2,&amp;C1,&amp;C2);</span><br><span class="line">        <span class="built_in">addedge</span>((<span class="number">2</span>*A1+C1),((<span class="number">2</span>*A2+C2)^<span class="number">1</span>));</span><br><span class="line">        <span class="built_in">addedge</span>((<span class="number">2</span>*A2+C2),((<span class="number">2</span>*A1+C1)^<span class="number">1</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!mark[<span class="number">2</span>*i]&amp;&amp;!mark[<span class="number">2</span>*i+<span class="number">1</span>])&#123;</span><br><span class="line">            <span class="keyword">while</span>(S.<span class="built_in">size</span>())</span><br><span class="line">                S.<span class="built_in">pop</span>();</span><br><span class="line">            <span class="keyword">bool</span> req=<span class="built_in">dfs</span>(<span class="number">2</span>*i);</span><br><span class="line">            <span class="keyword">if</span>(!req)&#123;</span><br><span class="line">                <span class="keyword">while</span>(S.<span class="built_in">size</span>())&#123;</span><br><span class="line">                    mark[S.<span class="built_in">top</span>()]=<span class="number">0</span>;</span><br><span class="line">                    S.<span class="built_in">pop</span>();</span><br><span class="line">                &#125;</span><br><span class="line">                req=<span class="built_in">dfs</span>(<span class="number">2</span>*i+<span class="number">1</span>);</span><br><span class="line">                <span class="keyword">if</span>(!req)&#123;</span><br><span class="line">                    <span class="built_in">printf</span>(<span class="string">&quot;NO\n&quot;</span>);</span><br><span class="line">                    <span class="keyword">return</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;YES\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>,&amp;n,&amp;m)==<span class="number">2</span>)&#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">2</span>*n;i++)&#123;</span><br><span class="line">            G[i].<span class="built_in">clear</span>();</span><br><span class="line">            mark[i]=<span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="指针的声明"><a href="#指针的声明" class="headerlink" title="指针的声明"></a>指针的声明</h1><ul>
+<li><p><code>int *p,q</code>会声明一个int*和一个int</p>
+</li>
+<li><p>使用new int []声明内存要用delete []释放</p>
+</li>
+<li><p>不能使用sizeof()获取动态分配的数组包含的字节数</p>
+<ul>
+<li>对指针使用sizeof()获取的是指针的长度</li>
+</ul>
+</li>
+</ul>
+<h1 id="指针和数组名"><a href="#指针和数组名" class="headerlink" title="指针和数组名"></a>指针和数组名</h1><ul>
+<li><p>指针和数组名一定程度上是等价的，但是指针的值可以改变，数组名的值是不能改变的</p>
+</li>
+<li><p>数组名将被解释成首元素地址，但是对数组名取地址将会得到整个数组的地址</p>
+<ul>
+<li><code>array</code> 和<code>&amp;array[0]</code>等价，相当于是指向n个元素的第一个</li>
+<li><code>&amp;array</code>指向这个数组，相当于指向这n个元素，向后移动将直接移动size个元素，所以<code>*(&amp;array)</code>将和<code>array</code>等价</li>
+</ul>
+</li>
+<li><p>给cout一个<code>char*</code>，cout将会打印字符串，要打印指针的值，可以将其转化成<code>int*</code></p>
+</li>
+</ul>
+<h2 id="一些UB："><a href="#一些UB：" class="headerlink" title="一些UB："></a>一些UB：</h2><ul>
+<li>有些古老的编译器会将字符串字面值视为<strong>只读常量</strong>，修改会造成RE。C++的标准中将会把所有字符串字面值视为常量</li>
+<li>有些编译器会只使用字符串字面值的一个副本表示所有的字符串字面值（也就是所有的字符串字面值”abc”可能只存一或多份（数量不固定），修改这个副本可能会影响其他的字符串字面值的值）</li>
+</ul>
+<h1 id="const指针"><a href="#const指针" class="headerlink" title="const指针"></a>const指针</h1><ul>
+<li><p>防止传递地址造成原始数据被破坏，使用const修饰符（不能通过const指针改变其指向的地址的值）</p>
+</li>
+<li><p>int * const p，p指向的地址不能改变</p>
+</li>
+<li><p>关于const指针的一些特性</p>
+<ul>
+<li>const指针只表示不能<strong>通过该指针</strong>修改指向的地址的值</li>
+<li>const指针可以接收const int、int类型的数据，非const指针不能接收const int数据（否则等于直接允许通过指针修改const变量）</li>
+</ul>
+</li>
+<li><p>二位数组<code>a[n][m]</code>，a相当于一个有n个元素的数组，每个元素指向一个有m个元素的数组，则<strong>a的类型是<code>int (*a)[m]</code>表示一个指向m个元素的数组的指针</strong>，如果写成<code>int *a[m]</code>表示的是m个指向int的指针的数组，使用a时需要解除引用两次</p>
+</li>
+<li><p>C++可以返回字符串的首地址，后续可以访问该地址的字符串，但是要注意指针的释放</p>
+</li>
+<li><p><strong>读取一行字符串getline(cin,s)</strong></p>
+</li>
+</ul>
+<h1 id="函数指针"><a href="#函数指针" class="headerlink" title="函数指针"></a>函数指针</h1><ul>
+<li><p>函数指针：函数名就是函数地址</p>
+<ul>
+<li><p>声明函数指针：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">func</span><span class="params">(<span class="keyword">int</span> a)</span></span>;</span><br><span class="line"><span class="built_in"><span class="keyword">int</span></span> (*p)(<span class="keyword">int</span>) = func;</span><br></pre></td></tr></table></figure>
+<p>加括号，保证优先级正确，否则<code>int *p(int)</code>会是一个返回<code>int *</code>的函数</p>
+</li>
+<li><p>通过指针调用函数</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">p</span>(<span class="number">1</span>); <span class="comment">// 函数名和函数指针都指向地址，行为应当一致</span></span><br><span class="line">(*p)(<span class="number">1</span>); <span class="comment">// *p代表指向的函数，可以使用*p调用</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>声明函数指针数组</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in"><span class="keyword">int</span></span> (*p[N])(<span class="keyword">int</span>) = &#123;f1,f2,f3,...&#125; </span><br></pre></td></tr></table></figure>
+<p><code>p[N]</code>创建N个元素的数组，其余部分指示数组中元素类型</p>
+</li>
+<li><p>声明指向整个数组的指针</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> tb = &amp;ta;</span><br><span class="line"><span class="built_in"><span class="keyword">int</span></span> (*(*a)[N])(<span class="keyword">int</span>) = &amp;ta</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+
     </div>
 
     
@@ -227,8 +290,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/2-SAT/" rel="tag"># 2-SAT</a>
-              <a href="/tags/DFS/" rel="tag"># DFS</a>
+              <a href="/tags/C-%E7%9F%A5%E8%AF%86/" rel="tag"># C++知识</a>
+              <a href="/tags/C-%E6%8C%87%E9%92%88/" rel="tag"># C++指针</a>
           </div>
 
         
@@ -237,13 +300,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/04/21/%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87STCISP%E7%83%A7%E5%86%99STC%E5%8D%95%E7%89%87%E6%9C%BA%E7%9A%84EEPROM/" rel="prev" title="如何通过STCISP烧写STC单片机的EEPROM">
-      <i class="fa fa-chevron-left"></i> 如何通过STCISP烧写STC单片机的EEPROM
+    <a href="/2021/10/28/Crontab%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" rel="prev" title="Crontab使用指南">
+      <i class="fa fa-chevron-left"></i> Crontab使用指南
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/05/25/HDU1814-Peaceful-Commission/" rel="next" title="HDU1814 Peaceful Commission">
-      HDU1814 Peaceful Commission <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -302,7 +362,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E6%84%8F"><span class="nav-number">1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%87%E9%92%88%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="nav-number">1.</span> <span class="nav-text">指针的声明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%87%E9%92%88%E5%92%8C%E6%95%B0%E7%BB%84%E5%90%8D"><span class="nav-number">2.</span> <span class="nav-text">指针和数组名</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9BUB%EF%BC%9A"><span class="nav-number">2.1.</span> <span class="nav-text">一些UB：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#const%E6%8C%87%E9%92%88"><span class="nav-number">3.</span> <span class="nav-text">const指针</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88"><span class="nav-number">4.</span> <span class="nav-text">函数指针</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
